@@ -1,2 +1,11 @@
 # LED7Clock
-HT16K33 7-segment LED clock on Raspberry Pi
+HT16K33 7-segment LED clock on Raspberry Pi Zero W
+
+This is a re-write of the 2019 version using the same hardware. Lots of things have moved on
+- Rasbian/Debian 12 bookworm
+- systyemd (!)
+- python3
+- Adafruit driver libraries
+- 
+
+More detailed install notes are in the labnotebook of The3Bears (private) site.
