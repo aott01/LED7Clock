@@ -7,6 +7,7 @@ Type=simple
 Restart=always
 RestartSec=3
 WorkingDirectory=/home/pi/LED7Clock
+# set environment variable for timezone, see tzdata in /usr/share/zoneinfo/
 Environment="TZ=PST8PDT"
 ExecStart=/home/pi/LED7Clock/venv/bin/python3 LED7Clock.py
 
