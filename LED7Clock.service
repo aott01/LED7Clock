@@ -10,6 +10,8 @@ WorkingDirectory=/home/pi/LED7Clock
 # set environment variable for timezone, see tzdata in /usr/share/zoneinfo/
 Environment="TZ=PST8PDT"
 ExecStart=/home/pi/LED7Clock/venv/bin/python3 LED7Clock.py
+ExecStop=/home/pi/LED7Clock/venv/bin/python3 LED7off.py
+ExecPostStop=/home/pi/LED7Clock/venv/bin/python3 LED7off.py
 
 [Install]
 WantedBy=multi-user.target
