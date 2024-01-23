@@ -1,0 +1,17 @@
+[Unit]
+Description=LED7Clock service
+
+[Service]
+User=pi
+Type=simple
+Restart=always
+RestartSec=3
+WorkingDirectory=/home/pi/LED7Clock
+Environment="TZ=PST8PDT"
+ExecStart=/home/pi/LED7Clock/venv/bin/python3 LED7Clock.py
+
+[Install]
+WantedBy=multi-user.target
+
+# copy this to /etc/systemd/system
+# enable and start as systemd service with systemctl
