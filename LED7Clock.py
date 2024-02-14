@@ -40,15 +40,17 @@ display.marquee(zonename, delay=0.3, loop=False)
 # time sync status
 # /usr/bin/timedatectl | grep "NTP service: active"
 # one time shot, 1 second delay, then try again
-ret = os.system('/usr/bin/timedatectl | /usr/bin/grep -q "NTP service: active"')
+ret = os.system('/usr/bin/timedatectl | /usr/bin/grep -q "System clock synchronized: yes"')
 if ret > 0:
-  syslog.syslog("NTP not active, return is "+str(ret))
-  display.marquee("no sync", delay=0.4, loop=False)
+  syslog.syslog("System clock synchronized: no")
+  display.marquee("not synced", delay=0.4, loop=False)
   time.sleep(1)
 else:
-  syslog.syslog("NTP active, return is "+str(ret))
-  ret = os.system('/usr/bin/timedatectl | /usr/bin/grep -q "NTP service: active"')
-  display.marquee("ntp synced", delay=0.4, loop=False)
+  syslog.syslog("System clock synced, also checking NTP service, return was "+str(ret))
+  display.marquee("synced", delay=0.4, loop=False)
+ret = os.system('/usr/bin/timedatectl | /usr/bin/grep "NTP service: active"')
+if ret == 0:
+  display.marquee("ntp yes", delay=0.4, loop=False)
 
 # Clear the display
 display.fill(0)
