@@ -38,7 +38,7 @@ zonename = os.environ["TZ"]
 display.marquee(zonename, delay=0.3, loop=False)
 
 # time sync status
-# /usr/bin/timedatectl | grep "NTP service: active"
+# /usr/bin/timedatectl | grep <>
 # one time shot, 1 second delay, then try again
 ret = os.system('/usr/bin/timedatectl | /usr/bin/grep -q "System clock synchronized: yes"')
 if ret > 0:
