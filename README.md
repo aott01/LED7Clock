@@ -7,6 +7,8 @@ This is a 2024 re-write of the 2019 version using the same hardware. Lots of thi
 - python3
 - Adafruit driver libraries
 
+Center colon and top-right dot are implemented (confusing, incomplete) in adafruit_ht16k33/segments.py .
+
 Code is meant to run inside a python venv of the unpriv "pi" user, started as a systemd service at boot.
 
 ```
@@ -24,4 +26,4 @@ pi@raspberrypi0W:~/LED7Clock $ . venv/bin/activate
 pi@raspberrypi0W:~/LED7Clock $ 
 ```
 
-More detailed install notes are in the labnotebook of The3Bears (private) site.
+More detailed install notes are in the R-Pi labnotebook of The3Bears (private) site.
