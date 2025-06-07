@@ -23,11 +23,11 @@ display = segments.Seg7x4(i2c)
 
 syslog.syslog("starting LED7clock.py")
 
-# show IP on display
+# show IP on display, replace dashes for dots
 gw = os.popen("/usr/sbin/ip -4 route show default").read().split()
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect((gw[2], 0))
-ipaddr = s.getsockname()[0]
+ipaddr = s.getsockname()[0].replace(".","-")
 #gateway = gw[2]
 #host = socket.gethostname()
 #print ("IP:", ipaddr, " GW:", gateway, " Host:", host)
