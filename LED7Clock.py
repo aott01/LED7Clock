@@ -39,7 +39,7 @@ display.marquee(zonename, delay=0.3, loop=False)
 
 # time sync status
 # /usr/bin/timedatectl | grep <>
-# one time shot, 1 second delay, then try again
+# one time shot, 1 second delay to check for NTP to eventually sync it
 ret = os.system('/usr/bin/timedatectl | /usr/bin/grep -q "System clock synchronized: yes"')
 if ret > 0:
   syslog.syslog("System clock synchronized: no")
