@@ -77,9 +77,9 @@ while(True):
   # Toggle colon
   display.colon=bool(second % 2)# Toggle colon at 1 second even/odd
 
-  # Wait a quarter second (less than 1 second, to prevent colon blinking getting
+  # Wait a half second (less than 1 second, to prevent colon blinking getting
   # delayed by other processes on single core CPU)
-  time.sleep(0.25)
+  time.sleep(0.5)
 
 display.fill(0)
 #try to log on exit
