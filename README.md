@@ -23,7 +23,7 @@ pi@raspberrypi0W:~/LED7Clock $ . venv/bin/activate
 (venv) pi@raspberrypi0W:~/LED7Clock $ sudo systemctl enable LED7Clock.service
 (venv) pi@raspberrypi0W:~/LED7Clock $ sudo systemctl start LED7Clock.service
 (venv) pi@raspberrypi0W:~/LED7Clock $ deactivate
-pi@raspberrypi0W:~/LED7Clock $ 
+pi@raspberrypi0W:~/LED7Clock $
 ```
 
 More detailed install notes are in the R-Pi labnotebook of The3Bears (private) site.
