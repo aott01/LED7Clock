@@ -7,7 +7,7 @@ This is a 2024 re-write of the 2019 version using the same hardware. Lots of thi
 - python3
 - Adafruit driver libraries
 
-Center colon and top-right dot are implemented (confusing, incomplete) in adafruit_ht16k33/segments.py .
+Center colon dots implementation in adafruit_ht16k33/segments.py was missing for BigSeg7x4. Locally patched for adding a colon_dots function when initializing the display as BigSeg7x4 vs. Seg7x4 for which a colon() function existed.
 
 Code is meant to run inside a python venv of the unpriv "pi" user, started as a systemd service at boot.
 
