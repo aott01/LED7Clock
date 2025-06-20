@@ -19,7 +19,9 @@ from adafruit_ht16k33 import segments
 # create the I2C interface
 i2c = busio.I2C(board.SCL, board.SDA)
 # This creates a 7 segment 4 character display, at default address=0x70:
-display = segments.Seg7x4(i2c)
+#display = segments.Seg7x4(i2c)
+# This creates a Big 7 segment 4 character display, at default address=0x70:
+display = segments.BigSeg7x4(i2c)
 
 syslog.syslog("starting LED7clock.py")
 
@@ -27,7 +29,7 @@ syslog.syslog("starting LED7clock.py")
 gw = os.popen("/usr/sbin/ip -4 route show default").read().split()
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect((gw[2], 0))
-ipaddr = s.getsockname()[0].replace(".","-")
+ipaddr = s.getsockname()[0].replace("."," ")
 #gateway = gw[2]
 #host = socket.gethostname()
 #print ("IP:", ipaddr, " GW:", gateway, " Host:", host)
@@ -74,9 +76,11 @@ while(True):
   # Set minutes
   display[2]=str(int(minute / 10))      # Tens
   display[3]=str(minute % 10)           # Ones
-  # Toggle colon
-  display.colon=bool(second % 2)# Toggle colon at 1 second even/odd
-
+  # Toggle colon Seg7x4
+#  display.colon=bool(second % 2)# Toggle colon at 1 second even/odd
+  # Toggle colon BigSeg7x4 (requires locally modified adafruit_ht16k33/segments.py)
+  display.colon_dots=bool(second % 2)# Toggle colon at 1 second even/odd
+  
   # Wait a half second (less than 1 second, to prevent colon blinking getting
   # delayed by other processes on single core CPU)
   time.sleep(0.5)
